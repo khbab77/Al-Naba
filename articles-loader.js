@@ -59,7 +59,8 @@ function loadFeaturedArticles(containerId, limit = 4) {
     // قائمة المقالات المميزة - أضف هنا الملفات التي تريدها في أهم الأخبار
     const featuredArticles = [
         
-        { file: 'sports-article1.html', category: 'sports' }
+        { file: 'technology-article1.html', category: 'technology' },
+        { file: 'health-article1.html', category: 'health' },
         // أضف المزيد من المقالات المهمة هنا
     ];
     
