@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- بيانات المقال -->
+    <meta name="article-title" content="عنوان المقال">
+    <meta name="article-category" content="politics">
+    <meta name="article-date" content="منذ يوم">
+    <meta name="article-author" content="اسم الكاتب">
+    <meta name="article-image" content="https://picsum.photos/seed/article/1200/600.jpg">
+    <meta name="article-image-caption" content="تعليق على الصورة">
+    <meta name="article-excerpt" content="مقدمة مختصرة عن المقال...">
+    <title>عنوان المقال - النبأ الأخباري</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Article Page Styles */
+        .article-header {
+            margin-bottom: 30px;
+        }
+
+        .article-header h1 {
+            font-size: 32px;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .article-meta span {
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .article-meta i {
+            margin-left: 5px;
+            color: #c8102e;
+        }
+
+        .article-category {
+            display: inline-block;
+            background-color: #c8102e;
+            color: #fff;
+            font-size: 14px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .article-image {
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .article-image-caption {
+            font-size: 14px;
+            color: #777;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .article-content {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: #333;
+        }
+
+        .article-content h3 {
+            font-size: 20px;
+            margin: 25px 0 15px;
+            color: #333;
+        }
+
+        .article-content blockquote {
+            background-color: #f9f9f9;
+            border-right: 4px solid #c8102e;
+            padding: 15px 20px;
+            margin: 30px 0;
+            font-size: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .article-tags {
+            margin-bottom: 30px;
+        }
+
+        .article-tags h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .article-tags a {
+            display: inline-block;
+            background-color: #f5f5f5;
+            color: #333;
+            font-size: 14px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .article-tags a:hover {
+            background-color: #c8102e;
+            color: #fff;
+        }
+
+        .article-share {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .article-share h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .share-buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: #fff;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .share-buttons a.facebook {
+            background-color: #3b5998;
+        }
+
+        .share-buttons a.twitter {
+            background-color: #1da1f2;
+        }
+
+        .share-buttons a.whatsapp {
+            background-color: #25d366;
+        }
+
+        .share-buttons a.telegram {
+            background-color: #0088cc;
+        }
+
+        .share-buttons a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .author-box {
+            display: flex;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 20px;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .related-articles {
+            margin-bottom: 30px;
+        }
+
+        .related-articles h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .related-articles h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #c8102e;
+        }
+
+        .related-articles-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+
+        .related-article-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .related-article-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-article-item .image {
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .related-article-item .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .related-article-item:hover .image img {
+            transform: scale(1.05);
+        }
+
+        .related-article-item .content {
+            padding: 15px;
+        }
+
+        .related-article-item h4 {
+            font-size: 16px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .related-article-item h4 a {
+            color: #333;
+        }
+
+        .related-article-item h4 a:hover {
+            color: #c8102e;
+        }
+
+        .comments-section {
+            margin-bottom: 30px;
+        }
+
+        .comments-section h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .comments-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #c8102e;
+        }
+
+        .comment-form {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .comment-form h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 14px;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        .comment-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .comment-form button {
+            background-color: #c8102e;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .comment-form button:hover {
+            background-color: #a00d24;
+        }
+
+        .comment {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .comment-author {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .comment-date {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .comment-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .comment-reply {
+            margin-top: 10px;
+        }
+
+        .comment-reply a {
+            font-size: 14px;
+            color: #c8102e;
+        }
+
+        .comment-reply a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 24px;
+            }
+
+            .article-content {
+                font-size: 16px;
+            }
+
+            .related-articles-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="article-parser.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>النبأ <span>الأخباري</span></h1>
+            </div>
+            <div class="date-time">
+                <span id="current-date"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news">
+        <div class="container">
+            <div class="breaking-news-label">
+                <i class="fas fa-bolt"></i>
+                <span>عاجل</span>
+            </div>
+            <div class="breaking-news-ticker">
+                <ul id="breaking-news-list">
+                    <!-- سيتم تحميل الأخبار العاجلة من هنا -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="main-menu">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="politics.html"><i class="fas fa-landmark"></i> السياسية</a></li>
+                <li><a href="economy.html"><i class="fas fa-chart-line"></i> الاقتصادية</a></li>
+                <li><a href="sports.html"><i class="fas fa-football-ball"></i> الرياضية</a></li>
+                <li><a href="technology.html"><i class="fas fa-microchip"></i> التكنولوجيا</a></li>
+                <li><a href="health.html"><i class="fas fa-heartbeat"></i> الصحة</a></li>
+                <li><a href="culture.html"><i class="fas fa-theater-masks"></i> الثقافة</a></li>
+                <li><a href="international.html"><i class="fas fa-globe"></i> الدولية</a></li>
+            </ul>
+            <div class="search-box">
+                <form action="#" method="get">
+                    <input type="text" placeholder="بحث...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="row">
+                <!-- Article Content -->
+                <div class="col-lg-8">
+                    <div class="article-container" data-placeholder="article-container">
+                        <!-- اكتب محتوى المقال هنا -->
+                        <p>محتوى المقال هنا...</p>
+                        <p>يمكن إضافة فقرات وعناوين فرعية حسب الحاجة.</p>
+                        <h2>عنوان فرعي</h2>
+                        <p>المزيد من المحتوى...</p>
+                        <blockquote>اقتباس مهم من المقال</blockquote>
+                        <h3>عنوان فرعي آخر</h3>
+                        <p>المزيد من المحتوى...</p>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Trending News -->
+                    <div class="sidebar-widget">
+                        <div class="widget-title">
+                            <h3>الأكثر قراءة</h3>
+                        </div>
+                        <div class="trending-news" id="trending-news">
+                            <!-- سيتم تحميل الأخبار الأكثر قراءة من هنا -->
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-widget">
+                        <div class="widget-title">
+                            <h3>الأقسام</h3>
+                        </div>
+                        <div class="categories">
+                            <ul>
+                                <li><a href="politics.html"><i class="fas fa-landmark"></i> السياسية</a></li>
+                                <li><a href="economy.html"><i class="fas fa-chart-line"></i> الاقتصادية</a></li>
+                                <li><a href="sports.html"><i class="fas fa-football-ball"></i> الرياضية</a></li>
+                                <li><a href="technology.html"><i class="fas fa-microchip"></i> التكنولوجيا</a></li>
+                                <li><a href="health.html"><i class="fas fa-heartbeat"></i> الصحة</a></li>
+                                <li><a href="culture.html"><i class="fas fa-theater-masks"></i> الثقافة</a></li>
+                                <li><a href="international.html"><i class="fas fa-globe"></i> الدولية</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="sidebar-widget newsletter">
+                        <div class="widget-title">
+                            <h3>النشرة البريدية</h3>
+                        </div>
+                        <p>اشترك في نشرتنا البريدية لتصلك أحدث الأخبار</p>
+                        <form action="#" method="post">
+                            <input type="email" placeholder="البريد الإلكتروني">
+                            <button type="submit">اشترك</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-about">
+                        <h3>نبذة عنا</h3>
+                        <p>النبأ الأخباري هو موقع إخباري شامل يقدم أحدث الأخبار والمقالات من مختلف المجالات السياسية والاقتصادية والرياضية والثقافية والتكنولوجية.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-links">
+                        <h3>روابط سريعة</h3>
+                        <ul>
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="politics.html">السياسية</a></li>
+                            <li><a href="economy.html">الاقتصادية</a></li>
+                            <li><a href="sports.html">الرياضية</a></li>
+                            <li><a href="technology.html">التكنولوجيا</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-contact">
+                        <h3>تواصل معنا</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> العنوان: شارع الملك فهد، الرياض</li>
+                            <li><i class="fas fa-phone"></i> الهاتف: +966 12 345 6789</li>
+                            <li><i class="fas fa-envelope"></i> البريد: info@alnaba-akhbari.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 النبأ الأخباري. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
